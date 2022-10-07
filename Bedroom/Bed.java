@@ -47,6 +47,7 @@ class Bed {
         return bedSize;
     }
     
+    // @return String
     public String bedToString() {
         return "My bed has " + numPillows + " and " + numBlankets + " blankets. It is a " + bedSize + "bed.";
     }
