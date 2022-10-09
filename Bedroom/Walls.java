@@ -3,7 +3,6 @@
 
 class Walls {
 
-    
     //initialise instance variables
     private String paintColour;
     private int numDoors;
@@ -11,42 +10,42 @@ class Walls {
     String pString = "";
 
     /**
-    * @param String p, sets paintColour to p
+    * @param p
     */
     public void setPaintColour(String p) {
         paintColour = p;
     }
     
     /**
-    * @return String paintColour
+    * @return paintColour
     */
     public String getPaintColour() {
         return paintColour;
     }
     
     /**
-    * @param int d, sets numDoors to d
+    * @param d
     */
     public void setNumDoors(int d) {
         numDoors = d;
     }
 
     /**
-    * @return int numDoors
+    * @return numDoors
     */
     public int getNumDoors() {
         return numDoors;
     }
 
     /**
-    * @param boolean p, set poster to p
+    * @param p
     */
     public void setPosterOnWall(boolean p) {
         posterOnWall = p;
     }
 
     /**
-    * @return boolean poster
+    * @return poster
     */
     public boolean getPosterOnWall() {
         return posterOnWall;

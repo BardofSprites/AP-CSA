@@ -7,37 +7,37 @@ class Desk {
     private int numCups;
     private String deskBook;
     /**
-    * @param String m, sets mouseColour to m
+    * @param m
     */
     public void setMouseColour(String m) {
         mouseColour = m;
     }
     /**
-    * @return String mouseColour
+    * @return mouseColour
     */
     public String getMouseColour() {
         return mouseColour;
     }
     /**
-    * @param int c, sets numCups to c
+    * @param c
     */
     public void setNumCups(int c) {
         numCups = c;
     }
     /**
-    * @return int numCups
+    * @return numCups
     */
     public int getNumCups() {
         return numCups;
     }
     /**
-    * @param String d 
+    * @param d 
     */
     public void setDeskBook(String d) {
         deskBook = d;
     }
     /**
-    * @return String deskBook
+    * @return deskBook
     */
     public String getDeskBook() {
         return deskBook;

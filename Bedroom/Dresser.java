@@ -8,21 +8,21 @@ class Dresser {
   private String drawerColour; 
 
   /**
-  * @param int o, sets numOpen to o
+  * @param o
   */
   public void setNumOpen(int o) {
     numOpen = o;
   }
    
   /**
-  * @return int numOpen
+  * @return numOpen
   */
   public int getNumOpen() {
     return numOpen;
   }
 
   /**
-  * @param int d, sets numDrawers to d
+  * @param d
   */
   public void setNumDrawers(int d) {
     numDrawers = d;
@@ -36,14 +36,14 @@ class Dresser {
   }
 
   /**
-  * @param String c, sets drawerColour to c
+  * @param c
   */
   public void setDrawerColour(String c) {
     drawerColour = c;
   }
 
   /**
-  * @return String drawerColour
+  * @return drawerColour
   */
   public String getDrawerColour() {
     return drawerColour;

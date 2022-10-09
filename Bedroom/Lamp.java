@@ -11,8 +11,7 @@ class Lamp {
     String pString = "";
 
     /**
-    * @param boolean l, int o
-    * Sets lampOn, numOn to respective params
+    * @param l
     */
     
     public Lamp (boolean l, int o) {
@@ -38,7 +37,7 @@ class Lamp {
     }
 
     /**
-    * @param boolean l, sets lampOn to l 
+    * @param l
     */
     public void setLampOn(boolean l) {
         if(pluggedIn == true) {
@@ -50,14 +49,14 @@ class Lamp {
     }
 
     /**
-    * @return boolean lampOn
+    * @return lampOn
     */
     public boolean getLampOn() {
         return lampOn;
     }
 
     /**
-    * @param int o, sets numOn to o
+    * @param o
     */
     public void setNumOn(int o) {
         if(o>3) {
@@ -69,21 +68,21 @@ class Lamp {
     }
 
     /**
-    * @return int numOn
+    * @return numOn
     */
     public int getNumOn() {
         return numOn;
     }
     
     /**
-    * @param boolean p, sets pluggedIn to p
+    * @param p
     */
     public void setPluggedIn(boolean p) {
         pluggedIn = p;
     }
     
     /**
-    * @return boolean pluggedIn
+    * @return pluggedIn
     */
     public boolean getPluggedIn() {
         return pluggedIn;

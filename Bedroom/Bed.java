@@ -8,7 +8,9 @@ class Bed {
     private int numBlankets;
 
     /**
-    * @param int p, int b, String s
+    * @param p
+    * @param b
+    * @param s
     * Sets numPillows , numBlankets, bedSize to repective params 
     */
     public Bed () {
@@ -17,49 +19,49 @@ class Bed {
         bedSize = "twin";
     }
     
-    /*
-    * @param int pillow, sets numPillows to pillow 
+    /**
+    * @param pillow
     */
     public void setPillow(int pillow) {
         numPillows = pillow;
     }
 
-    /*
-    * @return int numPillows
+    /**
+    * @return numPillows
     */
     public int getPillow() {
         return numPillows;
     }
 
-    /*
-    * @param int blanket, sets numBlanket to blanket
+    /**
+    * @param blanket
     */
     public void setBlankets(int blanket) {
         numBlankets = blanket;
     }
 
-    /*
-    * @return int numBlankets
+    /**
+    * @return numBlankets
     */
     public int getBlankets() {
         return numBlankets;
     }
 
-    /*
-    * @param String size, sets bedSize to size
+    /**
+    * @param size
     */
     public void setBedSize(String size) {
         bedSize = size;
     }
 
-    /*
-    * @return String bedSize
+    /**
+    * @return bedSize
     */
     public String getBedSize() {
         return bedSize;
     }
     
-    /*
+    /**
     * @return String
     */
     public String bedToString() {

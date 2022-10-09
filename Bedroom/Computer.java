@@ -10,52 +10,60 @@ class Computer {
     String pString = "";
 
     /**
-    * @params: bool hMode, bool l, bool p, String c
-    * sets instance variables to params
+    * @param hMode 
+    * @param p 
+    * @param c
     */
     public Computer (boolean hMode, boolean l, boolean p, String c) {
         hackerMode = hMode;
         powerOn = p;
         lightColour = c;
     }
+
     /**
-    * @param String c, sets lightColour to c
+    * @param c
     */
     public void setLightColour(String c) {
         lightColour = c;
     }
+
     /**
-    * @return bool lightColour
+    * @return lightColour
     */
     public String getLightColour() {
         return lightColour;
     }
     /**
-    * @return bool hackerMode
+    * @return hackerMode
     */
+
     public boolean gethackerModeOn() {
         return hackerMode;
     }
+
     /**
-    *@param boolean h, sets hackerMode to h
+    *@param h
     */
     public void setHackerMode(boolean h) {
         hackerMode = h;
     }
+
     /**
-    * @param boolean p, sets powerOn to p
+    * @param p
     */
     public void setPowerOn(boolean p) {
         powerOn = p;
     }
+
     /**
-    * @return bool powerOn
+    * @return powerOn
     */
     public boolean getPowerOn() {
         return powerOn;
     }
+
     /**
-    * @return bool lightsOn
+    * @return String
     */
     public String computerToString() {
         if(hackerMode == true) {
