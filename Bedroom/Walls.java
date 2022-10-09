@@ -3,43 +3,58 @@
 
 class Walls {
 
-    // initialise instance variables
+    
+    //initialise instance variables
     private String paintColour;
     private int numDoors;
     private boolean posterOnWall;; 
     String pString = "";
 
-    // @param String p, sets paintColour to p
+    /**
+    * @param String p, sets paintColour to p
+    */
     public void setPaintColour(String p) {
         paintColour = p;
     }
     
-    // @return String paintColour
+    /**
+    * @return String paintColour
+    */
     public String getPaintColour() {
         return paintColour;
     }
     
-    // @param int d, sets numDoors to d
+    /**
+    * @param int d, sets numDoors to d
+    */
     public void setNumDoors(int d) {
         numDoors = d;
     }
 
-    // @return int numDoors
+    /**
+    * @return int numDoors
+    */
     public int getNumDoors() {
         return numDoors;
     }
 
-    // @param boolean p, set poster to p
+    /**
+    * @param boolean p, set poster to p
+    */
     public void setPosterOnWall(boolean p) {
         posterOnWall = p;
     }
 
-    // @return boolean poster
+    /**
+    * @return boolean poster
+    */
     public boolean getPosterOnWall() {
         return posterOnWall;
     }
 
-    //@return String
+    /**
+    * @return String
+    */
     public String wallsToString() {
         if(posterOnWall == true ) {
             pString = "have";

@@ -6,33 +6,45 @@ public class Bookshelf {
     private String shelfColour;
     private int numBooks;
     private boolean booksOnShelf;
-
-    // @param String s, sets shelfColour to s
+    
+    /**
+    * @param String s, sets shelfColour to s
+    */
     public void setShelfColour(String s) {
         shelfColour = s;
     }
 
-    // @return String shelfColour
+    /**
+    * @return String shelfColour
+    */
     public String getShelfColour() {
         return shelfColour;
     }
 
-    // @param int b, sets numBooks to b
+    /**
+    * @param int b, sets numBooks to b
+    */
     public void setNumBooks(int b) {
         numBooks = b;
     }
 
-    // @return int numBooks
+    /**
+    * @return int numBooks
+    */
     public int getNumBooks() {
         return numBooks;
     }
 
-    // @param boolean b, sets booksOnShelf to s
+    /**
+    * @param boolean b, sets booksOnShelf to s
+    */
     public void setBooksOnShelf(boolean s) {
         booksOnShelf = s;
     }
 
-    // @return boolean booksOnShelf
+    /**
+    * @return boolean booksOnShelf
+    */
     public boolean getBooksOnShelf() {
         return booksOnShelf;
     }

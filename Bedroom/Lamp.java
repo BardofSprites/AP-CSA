@@ -10,9 +10,9 @@ class Lamp {
     String lString = "";
     String pString = "";
 
-    /*
-    @param boolean l, int o
-    Sets lampOn, numOn to respective params
+    /**
+    * @param boolean l, int o
+    * Sets lampOn, numOn to respective params
     */
     
     public Lamp (boolean l, int o) {
@@ -21,7 +21,9 @@ class Lamp {
         pluggedIn = true;
     }
 
-    // @return String about the lamp
+    /**
+    * @return String about the lamp
+    */
     public String checkLamp() {
         if(pluggedIn == true) {
             if(lampOn == true) {
@@ -35,17 +37,28 @@ class Lamp {
         return "The lamp is not plugged in, therefore it is not on.";
     }
 
-    // @param boolean l, sets lampOn to l 
+    /**
+    * @param boolean l, sets lampOn to l 
+    */
     public void setLampOn(boolean l) {
-        lampOn = l;
+        if(pluggedIn == true) {
+            lampOn = l;
+        }
+        else {
+            System.out.println("The lamp is not plugged in, therefore cannot be turned on.");
+        }
     }
 
-    // @return boolean lampOn
+    /**
+    * @return boolean lampOn
+    */
     public boolean getLampOn() {
         return lampOn;
     }
 
-    // @param int o, sets numOn to o
+    /**
+    * @param int o, sets numOn to o
+    */
     public void setNumOn(int o) {
         if(o>3) {
             numOn = 3; 
@@ -55,22 +68,30 @@ class Lamp {
         }
     }
 
-    // @return int numOn
+    /**
+    * @return int numOn
+    */
     public int getNumOn() {
         return numOn;
     }
     
-    // @param boolean p, sets pluggedIn to p
+    /**
+    * @param boolean p, sets pluggedIn to p
+    */
     public void setPluggedIn(boolean p) {
         pluggedIn = p;
     }
     
-    // @return boolean pluggedIn
+    /**
+    * @return boolean pluggedIn
+    */
     public boolean getPluggedIn() {
         return pluggedIn;
     }
     
-    // @return String
+    /**
+    * @return String
+    */
     public String lampToString() {
         if(lampOn == true) {
             lString = "is";
