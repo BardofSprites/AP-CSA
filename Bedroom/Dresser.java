@@ -7,6 +7,11 @@ class Dresser {
   private int numDrawers;
   private String drawerColour; 
 
+  public Dresser (int o) {
+    numOpen = o;
+    numDrawers = 6; 
+    drawerColour = "White";
+  }
   /**
   * @param o
   */
@@ -22,24 +27,10 @@ class Dresser {
   }
 
   /**
-  * @param d
-  */
-  public void setNumDrawers(int d) {
-    numDrawers = d;
-  }
-
-  /**
   * @return int numDrawers
   */
   public int getNumDrawers() {
     return numDrawers;
-  }
-
-  /**
-  * @param c
-  */
-  public void setDrawerColour(String c) {
-    drawerColour = c;
   }
 
   /**

@@ -6,6 +6,13 @@ class Desk {
     private String mouseColour; 
     private int numCups;
     private String deskBook;
+    
+    public Desk (String c, int n, String b) {
+        mouseColour = c;
+        numCups = n;
+        deskBook = b;
+    }
+
     /**
     * @param m
     */

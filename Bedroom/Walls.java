@@ -9,6 +9,11 @@ class Walls {
     private boolean posterOnWall;; 
     String pString = "";
 
+    public Walls (String c, int d, boolean p) {
+        paintColour = c; 
+        numDoors = d;
+        posterOnWall = p; 
+    }
     /**
     * @param p
     */

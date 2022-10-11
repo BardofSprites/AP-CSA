@@ -7,11 +7,10 @@ public class Bookshelf {
     private int numBooks;
     private boolean booksOnShelf;
     
-    /**
-    * @param s
-    */
-    public void setShelfColour(String s) {
-        shelfColour = s;
+    public Bookshelf(int b, boolean s) {
+        shelfColour = "brown";
+        numBooks = b;
+        booksOnShelf = s; 
     }
 
     /**

@@ -15,7 +15,7 @@ class Bed {
     */
     public Bed () {
         numPillows = 2;
-        numBlankets = 2;
+        numBlankets = 1;
         bedSize = "twin";
     }
     

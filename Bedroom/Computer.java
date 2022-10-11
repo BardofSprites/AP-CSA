@@ -14,7 +14,7 @@ class Computer {
     * @param p 
     * @param c
     */
-    public Computer (boolean hMode, boolean l, boolean p, String c) {
+    public Computer (boolean hMode, boolean p, String c) {
         hackerMode = hMode;
         powerOn = p;
         lightColour = c;
@@ -37,7 +37,7 @@ class Computer {
     * @return hackerMode
     */
 
-    public boolean gethackerModeOn() {
+    public boolean getHackerMode() {
         return hackerMode;
     }
 
