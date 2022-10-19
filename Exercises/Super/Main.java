@@ -4,6 +4,7 @@ class Main {
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
     System.out.println("Enter your the student name:");
+    String studentName = input.nextLine();
     System.out.println("Enter your math score:");
     int math = input.nextInt();
     System.out.println("Enter your ela score:");
