@@ -1,34 +1,40 @@
 // Name: Daniel Pinkston
 // Resources: readFile method: Bright Zheng
 
-import java.util.Scanner;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
+import java.util.Arrays;
 
-class Hangman {
+public class Hangman {
   // Scanner
-  Scanner input = new Scanner("System.in");
+  Scanner input = new Scanner(System.in);
   // Array that contains all of the guesses made
-  private Arraylist<String> guess = new ArrayList<String>();
-  // answer will be the 
+  private ArrayList<String> guess = new ArrayList<String>();
+  // answer will be the real answer
   private String answer;
   // The random index that will be set in the randomIndex method
-  private int index;
+  private double index = 0;
   // All of the guesses made by the user
-  private String temp;
+  private ArrayList<Character> guessedLetters = new ArrayList<Character>();
   // An array of all the words in the txt file
   private ArrayList<String> words = new ArrayList<String>();
+  // The amount of guesses that the user has left
   private int guessLeft;
-  // int that is 10 
+  // the user's input
+  private String userGuess;
+  // the amount of incorrect guesses made => must be less than six for the person to win
+  private int wrongGuess = 0;
+  // Correctly placed letters => "____g" (like this)
+  private ArrayList<Character> revealedAnswers = new ArrayList<Character>();
+
   // Finished
   public Hangman () {}
 
   // Finished
   public void readFile() {
     try {
-      File wordFile = new File(".words.txt");
+      File wordFile = new File("./words.txt");
       Scanner wordScanner = new Scanner(wordFile);
       while (wordScanner.hasNextLine()) {
         words.add(wordScanner.nextLine()); 
@@ -41,51 +47,99 @@ class Hangman {
   
   // Picks a random index
   public int randomIndex() {
-    int index = Math.floor(Math.random() * words.size());
-    return index;
+    index = Math.floor(Math.random() * words.size());
+    return (int) index;
   }
 
   // Finished
   public void roundStart() {
     System.out.println("You have " + guessLeft + " guesses left");
-    System.out.println("You have guessed these letters: " + guess);
   }
-  
-  // To Do
+
+  // Checks if there are any more spaces left in the revealedAnswers
+  public boolean gameOver() {
+    for(int i=0; i<revealedAnswers.size(); i++) {
+      if(revealedAnswers.get(i) == '_') {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public void game() {
-    // Number of incorrect answers
-    int wrongGuess = 0;
+    // Number of guesses what the user has left
     guessLeft = 6 - wrongGuess;
+    System.out.println(guessLeft);
     while (wrongGuess < 6) {
+      if(gameOver() == true) {
+        break;
+      }
       roundStart();
-      if (temp.equals(answer))
       System.out.println("Enter a letter to guess: ");
-      String userGuess = input.nextLine();
-      guess.add(userGuess);
-      for (int i=0; i<answer.length(); i++) {
-        if (answer.substring(i,i+1).equals(userGuess)) {
-          temp += userGuess;
-          System.out.println("This answer is correct! \n" + temp);
-          System.out.println("This guess was incorrect. You have: " + guessLeft + " left");
-        }
-        else if (userGuess.equals(temp.substring(i, i+1))) {
-          System.out.println("You have already entered this letter"); 
-          System.out.println("This guess was incorrect. You have: " + guessLeft + " left");
+      userGuess = input.nextLine();
+      char currentChar = userGuess.charAt(0);
+      if(isAlreadyGuessed(currentChar) == true) {
+        // Print out the full list of already guessed letters
+        System.out.println(guessedLetters);
+        System.out.println("You have already guessed this letter. Try again");
+      }
+      else {
+        // if currentChar is in the answer and if it is correct
+        // then update revealedAnswers
+        // else inform the user that their guess was incorrect
+        if(guessInAnswer(currentChar)) {
+          System.out.println("You have guessed a letter correctly");
+          for(int i=0; i<revealedAnswers.size(); i++) {
+            System.out.print(revealedAnswers.get(i) + " ");
+          }
+          System.out.println("");
         }
         else {
-          wrongGuess += 1;
-          System.out.println("This guess was incorrect. You have: " + guessLeft + " left");
+          System.out.println("Your guess was incorrect");
+          wrongGuess = wrongGuess + 1;
+          guessLeft -= 1;
         }
       }
     }
   }
 
+  // checks if the inputChar is in guessedLetters
+  public boolean isAlreadyGuessed(char inputChar) {
+    for(int i=0; i<guessedLetters.size(); i++) {
+      if(guessedLetters.get(i).equals(inputChar)) {
+        return true;
+      }
+    }
+    return false;
+  }
+  // Maintain revealedAnswers when the currentChar is found in the solution TODO
+  public boolean guessInAnswer(char inputChar) {
+    boolean returnState = false;
+    for (int i=0; i<answer.length(); i++) {
+      if (answer.charAt(i) == inputChar) {
+        returnState = true;
+      }
+    }
+    // Substitute the current character inside the revealed answer for every match in the array
+    for (int i=0; i<answer.length(); i++) {
+      if (answer.charAt(i) == inputChar) {
+        revealedAnswers.set(i,inputChar);
+      }
+    }
+    return returnState;
+  }
   // Finished
-  public void hangman() {
-    answer = words[index];
+  public void gameFunc() {
+    readFile();
+    answer = words.get(randomIndex());
+    answer = answer.toLowerCase();
+    int answerLength = answer.length();
+    for(int i=0; i<answerLength; i++) {
+      revealedAnswers.add('_');
+    }
+
     System.out.println("Welcome to my Hangman Game!");
-    System.out.println("You will have 6 tries to guess the word");
+    System.out.println("You will have 6 tries to guess the word. This system will only accept one character per guess.");
     game();
   } 
-
 }
