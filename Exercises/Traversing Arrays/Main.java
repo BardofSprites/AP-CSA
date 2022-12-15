@@ -1,26 +1,28 @@
 class Main {
-    public static void main(String[] args) {
-        String[] arr1 = new String[] { "w", "x", "y", "z" };
-        printArr(arr1);
+  public static void main(String[] args) {
+    //Array for Part A
+    String[] pies = {"pumpkin", "pecan", "apple", "peach"};
 
-        String[] arr2 = new String[] { "a", "b", "c" };
-        printArr(arr2);
+    //Part B
+    //number of elements to generate in the sequence
+    int max = 15;
 
-        int[] oddIndexArray = new int[] { 1, 2, 3, 4, 5 };
-        printOddIndices(oddIndexArray);
-    }
+    // create the array to hold the sequence of Fibonacci numbers
 
-    public static void printArr(String[] arr) {
-        // Print everything in the array on its own line
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
-    }
+    //create the first 2 Fibonacci sequence elements
+    sequence[0] = 0;
+    sequence[1] = 1;
 
-    public static void printOddIndices(int[] arr) {
+    //create the Fibonacci sequence and store it in int[] sequence
+
+
+    //print the Fibonacci sequence numbers
+
+
+    System.out.println("\nThe element after 55 is " + findNextElement(sequence, 55));
+  }
+
+  public static int findString(String[] arr, String myString) {
         // your code goes here!
-        for (int i = 1; i < arr.length; i+=2) {
-            System.out.println(arr[i]);
-        }
-    }
+  }
 }
