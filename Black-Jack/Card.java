@@ -4,12 +4,14 @@
 
 class Card {
     // Instance Variables
-    private int value;
+    private String value;
+    private int numValue;
     private String suit;
 
     // Constructor
     // Creates a card with a value and suit
-    public Card(int value, String suit) {
+    public Card(int numValue, String value, String suit) {
+        this.numValue = numValue;
         this.value = value;
         this.suit = suit;
     }
@@ -17,7 +19,12 @@ class Card {
     // Getters
 
     // Returns the number of the card
-    public int getValue() {
+    public int getNumValue() {
+        return numValue;
+    }
+
+    // Returns the value of the card as an int
+    public String getValue() {
         return value;
     }
 

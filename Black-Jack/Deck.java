@@ -13,16 +13,28 @@ class Deck {
     public Deck() {
         for (int i = 1; i <= 13; i++) {
             if (i >= 10) {
-                deck.add(new Card(10, "Hearts"));
-                deck.add(new Card(10, "Diamonds"));
-                deck.add(new Card(10, "Clubs"));
-                deck.add(new Card(10, "Spades"));
+                deck.add(new Card(10,"J","Hearts"));
+                deck.add(new Card(10,"J","Diamonds"));
+                deck.add(new Card(10,"J","Clubs"));
+                deck.add(new Card(10,"J","Spades"));
+            }
+            else if (i >= 11) {
+                deck.add(new Card(10,"Q","Hearts"));
+                deck.add(new Card(10,"Q","Diamonds"));
+                deck.add(new Card(10,"Q","Clubs"));
+                deck.add(new Card(10,"Q","Spades"));
+            }
+            else if (i >= 12) {
+                deck.add(new Card(10,"K","Hearts"));
+                deck.add(new Card(10,"K","Diamonds"));
+                deck.add(new Card(10,"K","Clubs"));
+                deck.add(new Card(10,"K","Spades"));
             }
             else {
-                deck.add(new Card(i, "Hearts"));
-                deck.add(new Card(i, "Diamonds"));
-                deck.add(new Card(i, "Clubs"));
-                deck.add(new Card(i, "Spades"));
+                deck.add(new Card(i,"","Hearts"));
+                deck.add(new Card(i,"","Diamonds"));
+                deck.add(new Card(i,"","Clubs"));
+                deck.add(new Card(i,"","Spades"));
             }
         }
     }
@@ -50,7 +62,7 @@ class Deck {
     }
 
     // TODO ToString Method
-    public String toString(Deck d) {
+    public String toString() {
         String str = "";
         for (int i=0; i<deck.size(); i++) {
             str += deck.get(i);
