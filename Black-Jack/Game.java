@@ -41,6 +41,18 @@ class Game {
         return false;
     }
 
+    public Player checkGreater(Player p1, Player p2) {
+        if (p1.getHandValue() > p2.getHandValue()) {
+            return p1;
+        }
+        else if (p1.getHandValue() < p2.getHandValue()) {
+            return p2;
+        }
+        else {
+            return p1;
+        }
+    }
+
     // p1 is the user and p2 is the cpu
     public boolean checkWin(Player p1, Player p2) {
         if (checkBust(p1) == true) {
@@ -62,7 +74,13 @@ class Game {
         return false;
     }
 
-    public void printWin() {
+    public void printWin(Player p1, Player p2) {
+        if (checkGreater(p1,p2) == p1) {
+            winner = "player";
+        }
+        else {
+            winner = "dealer";
+        }
         System.out.println(winner.toUpperCase() + " is the winner!");
         System.out.println("Your hand: " + user.toString() + "Your value: " + user.getHandValue() + "\n Dealer's hand: " + cpu.toString() + "Dealer's value: " + cpu.getHandValue());
     }
@@ -97,10 +115,10 @@ class Game {
             else {
                 cpuDone = true;
             }
-            if (cpuDone && userDone) {
+            if (userDone == true) {
                 break;
             }
         }
-        printWin();
+        printWin(user,cpu);
     }
 }
