@@ -34,7 +34,10 @@ class Card {
     }
 
     // Prints the card
-    public String toString() {
-        return value + " of " + suit;
+    public String toString(Card c) {
+        if (c.getNumValue() > 10) {
+            return value + " of " + suit;
+        }
+        return numValue + " of " + suit;
     }
 }

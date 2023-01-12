@@ -11,20 +11,60 @@ class Game {
     // The player
     private Player user = new Player();
     private Player cpu = new Player();
+    private boolean userDone = false;
+    private boolean cpuDone = false;
+    private String winner = "";
+
+    // Scanner
+    Scanner input = new Scanner(System.in);
+
+    // Constructor
     public Game() {}
 
     public void dealCards() {
         // Deal two cards to the user and cpu
-        int randomDraw1 = (int) (Math.random() * 52);
-        int randomDraw2 = (int) (Math.random() * 52);
-        // user.add(deck.draw(randomDraw1));
-        // cpu.add(deck.draw(randomDraw2));
+        user.getStartHand();
+        cpu.getStartHand();
     }
 
-    // TODO finish the method
-    // FIXME player.toString method is not complete and is subject to change
-    public String toString() {
-        return "Player's hand: " + player.toString() + ", CPU's hand: " + cpu.toString();
+    public boolean checkBust(Player p) {
+        if (p.getHandValue() > 21) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkBlackJack(Player p) {
+        if (p.getHandValue() == 21) {
+            return true;
+        }
+        return false;
+    }
+
+    // p1 is the user and p2 is the cpu
+    public boolean checkWin(Player p1, Player p2) {
+        if (checkBust(p1) == true) {
+            winner = "dealer";
+            return true;
+        }
+        else if (checkBust(p2) == true) {
+            winner = "player";
+            return true;
+        }
+        if (checkBlackJack(p1) == true) {
+            winner = "player";
+            return true;
+        }
+        else if (checkBlackJack(p2) == true) {
+            winner = "dealer";
+            return true;
+        }
+        return false;
+    }
+
+    public void printWin() {
+        System.out.println(winner.toUpperCase() + " is the winner!");
+        System.out.println("Your hand: " + user.toString() + "Your value: " + user.getHandValue() + "\n Dealer's hand: " + cpu.toString() + "Dealer's value: " + cpu.getHandValue());
     }
 
     public void startGame() {
@@ -32,13 +72,35 @@ class Game {
         deck = new Deck();
         // Shuffle the deck
         deck.shuffle();
-        // Deal the cards
+        // Deal the cards to both of the players if the round is not round 1
         dealCards();
-        // Display the cards
-        // TODO THIS
-        // toString();
-        // displayCards();
-        // Check for a winner
-        // checkWinner();
+        while (checkWin(user,cpu) != true) {
+            // Display the user's cards
+            System.out.println("Your hand: " + user.toString() + " ");
+            System.out.println("Your hand value: " + user.getHandValue());
+            // Give the user the choice to stand or hit
+            System.out.println("Hit (no to stand)? (y/n)");
+            String choice = input.nextLine();
+            if (choice.equals("y")) {
+                user.hit();
+            }
+            else if (choice.equals("n")) {
+                userDone = true;
+            }
+            else {
+                System.out.println("invalid input, this will count as a stand");
+            }
+            // cpu will hit until it has a hand value of 17 or higher
+            if (cpu.getHandValue() < 17) {
+                cpu.hit();
+            }
+            else {
+                cpuDone = true;
+            }
+            if (cpuDone && userDone) {
+                break;
+            }
+        }
+        printWin();
     }
 }
