@@ -43,13 +43,23 @@ class Game {
 
     public Player checkGreater(Player p1, Player p2) {
         if (p1.getHandValue() > p2.getHandValue()) {
-            return p1;
+            if (checkBust(p1) == true) {
+                return p2;
+            }
+            else {
+                return p1;
+            }
         }
         else if (p1.getHandValue() < p2.getHandValue()) {
-            return p2;
+            if (checkBust(p2) == true) {
+                return p1;
+            }
+            else {
+                return p2;
+            }
         }
         else {
-            return p1;
+            return p2;
         }
     }
 
