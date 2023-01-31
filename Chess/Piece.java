@@ -4,8 +4,7 @@ class Piece {
     private int y;
     private boolean isWhite;
 
-    public Piece() {
-        this.name = "Piece";
+    public Piece(int x, int y, boolean isWhite) {
         this.x = 0;
         this.y = 0;
     }
@@ -15,10 +14,12 @@ class Piece {
         return "";
     }
 
+    public void setColor(boolean isWhite) {
+    }
+
     public void move() {
         // Moves the piece forward once.
         // This will be overriden by other classes
         x += 1;
     }
-
 }

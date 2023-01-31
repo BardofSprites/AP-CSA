@@ -18,14 +18,16 @@ class Board {
         board = new String[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (pieces[i][j] == null) {
-                    board[i][j] = " ";
-                } else {
-                    board[i][j] = pieces[i][j].toString();
-                }
             }
-
         }
     }
 
+    public void printBoard() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(board[i][j]);
+            }
+            System.out.println();
+        }
+    }
 }
