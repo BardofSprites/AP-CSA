@@ -1,13 +1,19 @@
 class Board {
     private Piece[][] pieces;
-    public String[][] board;
+    public int[][] board;
 
     public Board() {
         pieces = new Piece[8][8];
     }
 
-    public void addPice(Piece piece, int x, int y) {
-        pieces[x][y] = piece;
+    public void addPieces() {
+       for (int i = 0; i < pieces.length; i++) {
+           for (int j = 0; j < pieces[i].length; j++) {
+               if (j < 2 || j > 5) {
+                   pieces[i][j] = piece;
+               }
+           }
+       }
     }
 
     public Piece getPiece(int x, int y) {
@@ -15,10 +21,14 @@ class Board {
     }
 
     public void makeBoard() {
-        board = new String[8][8];
+        board = new int[8][8];
         for (int i = 0; i < 8; i++) {
+            int count = 1;
             for (int j = 0; j < 8; j++) {
+                board[i][j] = count;
+                count ++;
             }
+
         }
     }
 
