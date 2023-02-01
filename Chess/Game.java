@@ -3,9 +3,9 @@ class Game {
 
     public void startGame() {
         Board board = new Board();
-
-        board.addPieces();
-        board.printBoard();
+        // board.makeTest();
+        // board.printTest();
         board.makeBoard();
+        board.printBoard();
     }
 }

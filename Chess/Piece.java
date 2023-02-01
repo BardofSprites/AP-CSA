@@ -10,11 +10,15 @@ class Piece {
     }
 
     public String toString() {
-        // Prints the piece
-        return "";
+        return "";
     }
 
     public void setColor(boolean isWhite) {
+        if (isWhite) {
+            this.isWhite = true;
+        } else {
+            this.isWhite = false;
+        }
     }
 
     public void move() {
