@@ -3,9 +3,8 @@ class Game {
 
     public void startGame() {
         Board board = new Board();
-        // board.makeTest();
-        // board.printTest();
         board.makeBoard();
-        board.printBoard();
+        // board.printBoard();
+        board.draw();
     }
 }

@@ -1,6 +1,11 @@
 class Board {
     private Piece[][] board;
     private int[][] testBoard;
+    public final String blackBackground = "\u001B[42m";
+    public final String blackCharacter = "\u001B[32m";
+    public final String whiteBackground = "\u001B[47m";
+    public final String whiteCharacter = "\u001B[37m";
+    public final String reset = "\u001B[0m";
 
     public Board() {
         board = new Piece[8][8];
@@ -10,29 +15,60 @@ class Board {
     // Sets up the pieces at the right positions, but not minding colors or type of piece
     // TODO Make this method do the things above
     public void makeBoard() {
-       for (int i = 0; i < board.length; i++) {
-           for (int j = 0; j < board[i].length; j++) {
-               if (j < 2) {
-                   board[i][j] = new Piece (i, j, true);
-               } else if (j > 5) {
-                   board[i][j] = new Piece (i, j, false);
+       for (int row = 0; row < board.length; row++) {
+           for (int column = 0; column < board[row].length; column++) {
+               if (row < 2) {
+                   board[row][column] = new Piece (row, column, true);
+               } else if (row > 5) {
+                   board[row][column] = new Piece (row, column, false);
                }
                else {
-                   board[i][j] = null;
+                   board[row][column] = null;
                }
            }
        }
     }
 
-    public void printBoard() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (board [i][j] == null) {
-                    System.out.print(" ");
+    // Redraws the board after the move, by checking the board if there is a piece at the position, if not check the pattern of odd row and even row
+    // basically a better printBoard method
+    public void draw() {
+        for (int row = 0; row<board.length; row++) {
+            for (int column = 0; column<board[row].length; column++) {
+                if (board [row][column] == null) {
+                    if (row % 2 == 0) {
+                        if (column % 2 == 0) {
+                            System.out.print(blackBackground + "  " + reset);
+                        } else {
+                            System.out.print(whiteBackground + "  " + reset);
+                        }
+                    } else {
+                        if (column % 2 != 0) {
+                            System.out.print(blackBackground + "  " + reset);
+                        } else {
+                            System.out.print(whiteBackground + "  " + reset);
+                        }
+                    }
                 } else {
-                    System.out.print(board[i][j].toString());
+                    if (board [row][column].isWhite() == true)  {
+                        System.out.print(blackCharacter + board[row][column].toString() + reset);
+                    } else {
+                        System.out.print(whiteCharacter + board[row][column].toString() + reset);
+                    }
                 }
-                System.out.print(" \n");
+            }
+            System.out.print(" \n");
+        }
+    }
+
+    // DEPRECATED Prints the board
+    public void printBoard() {
+        for (int row = 0; row < board.length; row++) {
+            for (int column = 0; column < board[row].length; column++) {
+                if (board [row][column] == null) {
+                    System.out.print("_");
+                } else {
+                    System.out.print(board[row][column].toString());
+                }
             }
         System.out.print(" \n");
         }
@@ -40,25 +76,5 @@ class Board {
 
     public Piece getPiece(int x, int y) {
         return board[x][y];
-    }
-
-    // Fills a 2D array with numbers 1-8 on each row
-    public void makeTest() {
-        for (int i = 0; i < testBoard.length; i++) {
-            for (int j = 0; j < testBoard[i].length; j++) {
-                testBoard[i][j] = 0;
-            }
-        }
-    }
-
-
-    public void printTest() {
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(j+1);
-            }
-            System.out.println("\n");
-        }
-        System.out.println("\n");
     }
 }

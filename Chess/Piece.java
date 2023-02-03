@@ -7,18 +7,15 @@ class Piece {
     public Piece(int x, int y, boolean isWhite) {
         this.x = 0;
         this.y = 0;
+        this.isWhite = isWhite;
     }
 
     public String toString() {
-        return "";
+        return " ";
     }
 
-    public void setColor(boolean isWhite) {
-        if (isWhite) {
-            this.isWhite = true;
-        } else {
-            this.isWhite = false;
-        }
+    public boolean isWhite() {
+        return isWhite;
     }
 
     public void move() {
