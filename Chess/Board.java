@@ -50,9 +50,9 @@ class Board {
                     }
                 } else {
                     if (board [row][column].isWhite() == true)  {
-                        System.out.print(blackCharacter + board[row][column].toString() + reset);
-                    } else {
                         System.out.print(whiteCharacter + board[row][column].toString() + reset);
+                    } else {
+                        System.out.print(blackCharacter + board[row][column].toString() + reset);
                     }
                 }
             }
