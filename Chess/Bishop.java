@@ -4,6 +4,6 @@ class Bishop extends Piece {
     }
 
     public String toString() {
-        return "󰡜 ";
+        return "B ";
     }
 }

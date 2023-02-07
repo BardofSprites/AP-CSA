@@ -4,6 +4,6 @@ class Rook extends Piece {
     }
 
     public String toString() {
-        return "󰡛 ";
+        return "R ";
     }
 }

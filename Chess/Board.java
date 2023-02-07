@@ -1,9 +1,9 @@
 class Board {
     private Piece[][] board;
     private int[][] testBoard;
-    public final String blackBackground = "\033[48:5:166m";
+    public final String blackBackground = "\u001B[44m";
     public final String blackCharacter = "\u001B[30m";
-    public final String whiteBackground = "\u001B[44m";
+    public final String whiteBackground = "\u001B[47m";
     public final String whiteCharacter = "\u001B[37m";
     public final String reset = "\u001B[0m";
 

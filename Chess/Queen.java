@@ -4,6 +4,6 @@ class Queen extends Piece {
     }
 
     public String toString() {
-        return "󰡚 ";
+        return "Q ";
     }
 }

@@ -4,6 +4,6 @@ class Knight extends Piece {
     }
 
     public String toString() {
-        return "󰡘 ";
+        return "k ";
     }
 }
