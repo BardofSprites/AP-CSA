@@ -17,10 +17,38 @@ class Board {
     public void makeBoard() {
        for (int row = 0; row < board.length; row++) {
            for (int column = 0; column < board[row].length; column++) {
-               if (row < 2) {
-                   board[row][column] = new Piece (row, column, true);
-               } else if (row > 5) {
-                   board[row][column] = new Piece (row, column, false);
+               if (row == 1) {
+                   board[row][column] = new Pawn (row, column, true);
+               } else if (row == 0) {
+                   if (column == 0 || column == 7) {
+                       board[row][column] = new Rook (row, column, true);
+                   } else if (column == 1 || column == 6) {
+                       board[row][column] = new Knight (row, column, true);
+                   } else if (column == 2 || column == 5) {
+                       board[row][column] = new Bishop (row, column, true);
+                   } else if (column == 3) {
+                       board[row][column] = new Queen (row, column, true);
+                   } else if (column == 4) {
+                       board[row][column] = new King (row, column, true);
+                   } else {
+                       board[row][column] = new Pawn (row, column, true);
+                   }
+               } else if (row == 6) {
+                   board[row][column] = new Pawn (row, column, false);
+               } else if (row == 7) {
+                   if (column == 0 || column == 7) {
+                       board[row][column] = new Rook (row, column, false);
+                   } else if (column == 1 || column == 6) {
+                       board[row][column] = new Knight (row, column, false);
+                   } else if (column == 2 || column == 5) {
+                       board[row][column] = new Bishop (row, column, false);
+                   } else if (column == 3) {
+                       board[row][column] = new King (row, column, false);
+                   } else if (column == 4) {
+                       board[row][column] = new Queen (row, column, false);
+                   } else {
+                       board[row][column] = new Pawn (row, column, false);
+                   }
                }
                else {
                    board[row][column] = null;
@@ -50,12 +78,13 @@ class Board {
                     }
                 } else {
                     if (board [row][column].isWhite() == true)  {
-                        System.out.print(whiteCharacter + board[row][column].toString() + reset);
-                    } else {
-                        System.out.print(blackCharacter + board[row][column].toString() + reset);
+                        if (row % 2 == 0) {
+                            if (column % 2 == 0) {
+                                System.out.print(blackBackground + blackCharacter + board[row][column].toString() + reset);
+                            }
+                        }
                     }
                 }
-            }
             System.out.print(" \n");
         }
     }
