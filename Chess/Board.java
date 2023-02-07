@@ -78,14 +78,13 @@ class Board {
                     }
                 } else {
                     if (board [row][column].isWhite() == true)  {
-                        if (row % 2 == 0) {
-                            if (column % 2 == 0) {
-                                System.out.print(blackBackground + blackCharacter + board[row][column].toString() + reset);
-                            }
-                        }
+                        System.out.print(whiteCharacter + board[row][column].toString() + reset);
+                    } else {
+                        System.out.print(blackCharacter + board[row][column].toString() + reset);
                     }
                 }
-            System.out.print(" \n");
+            }
+        System.out.print(" \n");
         }
     }
 
