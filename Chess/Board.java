@@ -1,9 +1,9 @@
 class Board {
     private Piece[][] board;
     private int[][] testBoard;
-    public final String blackBackground = "\u001B[42m";
-    public final String blackCharacter = "\u001B[32m";
-    public final String whiteBackground = "\u001B[47m";
+    public final String blackBackground = "\033[48:5:166m";
+    public final String blackCharacter = "\u001B[30m";
+    public final String whiteBackground = "\u001B[44m";
     public final String whiteCharacter = "\u001B[37m";
     public final String reset = "\u001B[0m";
 
@@ -78,9 +78,33 @@ class Board {
                     }
                 } else {
                     if (board [row][column].isWhite() == true)  {
-                        System.out.print(whiteCharacter + board[row][column].toString() + reset);
+                        if (row % 2 == 0) {
+                            if (column % 2 == 0) {
+                                System.out.print(blackBackground + whiteCharacter + board[row][column].toString() + reset);
+                            } else {
+                                System.out.print(whiteBackground + whiteCharacter + board[row][column].toString() + reset);
+                            }
+                        } else {
+                            if (column % 2 != 0) {
+                                System.out.print(blackBackground + whiteCharacter + board[row][column].toString() + reset);
+                            } else {
+                                System.out.print(whiteBackground + whiteCharacter + board[row][column].toString() + reset);
+                            }
+                        }
                     } else {
-                        System.out.print(blackCharacter + board[row][column].toString() + reset);
+                        if (row % 2 == 0) {
+                            if (column % 2 == 0) {
+                                System.out.print(blackBackground + blackCharacter + board[row][column].toString() + reset);
+                            } else {
+                                System.out.print(whiteBackground + blackCharacter + board[row][column].toString() + reset);
+                            }
+                        } else {
+                            if (column % 2 != 0) {
+                                System.out.print(blackBackground + blackCharacter + board[row][column].toString() + reset);
+                            } else {
+                                System.out.print(whiteBackground + blackCharacter + board[row][column].toString() + reset);
+                            }
+                        }
                     }
                 }
             }
