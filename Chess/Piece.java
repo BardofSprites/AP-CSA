@@ -18,9 +18,7 @@ class Piece {
         return isWhite;
     }
 
-    public void move() {
-        // Moves the piece forward once.
-        // This will be overriden by other classes
+    public void move(int x, int y) {
         x += 1;
     }
 }

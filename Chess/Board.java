@@ -3,7 +3,7 @@ class Board {
     private int[][] testBoard;
     public final String blackBackground = "\u001B[44m";
     public final String blackCharacter = "\u001B[30m";
-    public final String whiteBackground = "\u001B[47m";
+    public final String whiteBackground = "\u001B[43m";
     public final String whiteCharacter = "\u001B[37m";
     public final String reset = "\u001B[0m";
 
@@ -60,8 +60,16 @@ class Board {
     // Redraws the board after the move, by checking the board if there is a piece at the position, if not check the pattern of odd row and even row
     // basically a better printBoard method
     public void draw() {
+        String letters = "ABCDEFGH";
         for (int row = 0; row<board.length; row++) {
+            if (row == 0) {
+                System.out.println("  A B C D E F G H ");
+            }
             for (int column = 0; column<board[row].length; column++) {
+                if (column == 0) {
+
+                    System.out.print(8-row + " ");
+                }
                 if (board [row][column] == null) {
                     if (row % 2 == 0) {
                         if (column % 2 == 0) {
@@ -112,18 +120,60 @@ class Board {
         }
     }
 
-    // DEPRECATED Prints the board
-    public void printBoard() {
-        for (int row = 0; row < board.length; row++) {
-            for (int column = 0; column < board[row].length; column++) {
-                if (board [row][column] == null) {
-                    System.out.print("_");
-                } else {
-                    System.out.print(board[row][column].toString());
-                }
-            }
-        System.out.print(" \n");
+    public void movePiece(String row, int column, String newRow, int newColumn) {
+        int r = 0;
+        int r2 = 0;
+        row = row.toUpperCase();
+        newRow = newRow.toUpperCase();
+        // Assigning the row to a number
+        if (row == "A") {
+            r = 0;
+        } else if (row == "B")  {
+            r = 1;
+        } else if (row == "C")  {
+            r = 2;
+        } else if (row == "D")  {
+            r = 3;
+        } else if (row == "E")  {
+            r = 4;
+        } else if (row == "F")  {
+            r = 5;
+        } else if (row == "G")  {
+            r = 6;
+        } else if (row == "H")  {
+            r = 7;
         }
+        // Assigning the new row to a number
+        if (newRow == "A") {
+            r2 = 0;
+        } else if (newRow == "B")  {
+            r2 = 1;
+        } else if (newRow == "C")  {
+            r2 = 2;
+        } else if (newRow == "D")  {
+            r2 = 3;
+        } else if (newRow == "E")  {
+            r2 = 4;
+        } else if (newRow == "F")  {
+            r2 = 5;
+        } else if (newRow == "G")  {
+            r2 = 6;
+        } else if (newRow == "H")  {
+            r2 = 7;
+        }
+        board[r2][newColumn] = board[r][column];
+        board[r][column] = null;
+    }
+
+    public boolean validMove(String row, int column, String newRow, int newColumn) {
+        String letters = "abcdefgh";
+        boolean valid = false;
+        for (int i=0; i < letters.length(); i++) {
+            if (row.toLowerCase() == letters.substring(i, i+1) && newRow.toLowerCase() == letters.substring(i, i+1)) {
+                valid = true;
+            }
+        }
+        return valid;
     }
 
     public Piece getPiece(int x, int y) {
