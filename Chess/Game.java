@@ -31,29 +31,29 @@ class Game {
         // get the coordinate of the piece that needs to move
         System.out.println("Enter the piece that you want to move: ");
         String userInput = input.nextLine();
-        String row = "";
-        int col = 0;
-        for (int i = 0; i < userInput.length(); i++) {
-            row = userInput.substring(0,1);
-            col = Integer.parseInt(userInput.substring(1,2));
-        }
+        String col = "";
+        int row = 0;
+        col = userInput.substring(0,1);
+        row = Integer.parseInt(userInput.substring(1,2));
+        System.out.println(row + " " + col);
 
         // Asking for the destination
         System.out.println("Enter the row and column that you want to move to: ");
-        String userInput2 = input.nextLine();
-        String row2 = "";
-        int col2 = 0;
-        for (int i = 0; i < userInput2.length(); i++) {
-            row2 = userInput2.substring(0,1);
-            col2 = Integer.parseInt(userInput2.substring(1,2));
-        }
+        String userInputDestination = input.nextLine();
+        String newCol = "";
+        int newRow = 0;
+        newCol = userInputDestination.substring(0,1);
+        newRow = Integer.parseInt(userInputDestination.substring(1,2));
+        System.out.println(newRow + " " + newCol);
 
         // Check if the move is valid, otherwise ask for the input again
-        if (board.validMove(row, col, row2, col2) == true) {
-            board.movePiece(row, col, row2, col2);
-            turn ++;
-        } else {
-            System.out.println("Invalid move");
-        }
+        // if (board.validMove(col, row, newCol, newRow) == true) {
+        //     board.movePiece(col, row, newCol, newRow);
+        //     turn ++;
+        // } else {
+        //     board.movePiece(col, row, newCol, newRow);
+        // }
+
+        board.movePiece(col, row, newCol, newRow);
     }
 }

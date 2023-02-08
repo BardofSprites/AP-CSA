@@ -63,12 +63,12 @@ class Board {
         String letters = "ABCDEFGH";
         for (int row = 0; row<board.length; row++) {
             if (row == 0) {
-                System.out.println("  A B C D E F G H ");
+                System.out.println("  H G F E D C B A ");
             }
             for (int column = 0; column<board[row].length; column++) {
                 if (column == 0) {
 
-                    System.out.print(8-row + " ");
+                    System.out.print(row + 1);
                 }
                 if (board [row][column] == null) {
                     if (row % 2 == 0) {
@@ -127,50 +127,52 @@ class Board {
         newRow = newRow.toUpperCase();
         // Assigning the row to a number
         if (row == "A") {
-            r = 0;
-        } else if (row == "B")  {
-            r = 1;
-        } else if (row == "C")  {
-            r = 2;
-        } else if (row == "D")  {
-            r = 3;
-        } else if (row == "E")  {
-            r = 4;
-        } else if (row == "F")  {
-            r = 5;
-        } else if (row == "G")  {
-            r = 6;
-        } else if (row == "H")  {
             r = 7;
+        } else if (row == "B")  {
+            r = 6;
+        } else if (row == "C")  {
+            r = 5;
+        } else if (row == "D")  {
+            r = 4;
+        } else if (row == "E")  {
+            r = 3;
+        } else if (row == "F")  {
+            r = 2;
+        } else if (row == "G")  {
+            r = 1;
+        } else if (row == "H")  {
+            r = 0;
         }
         // Assigning the new row to a number
         if (newRow == "A") {
-            r2 = 0;
-        } else if (newRow == "B")  {
-            r2 = 1;
-        } else if (newRow == "C")  {
-            r2 = 2;
-        } else if (newRow == "D")  {
-            r2 = 3;
-        } else if (newRow == "E")  {
-            r2 = 4;
-        } else if (newRow == "F")  {
-            r2 = 5;
-        } else if (newRow == "G")  {
-            r2 = 6;
-        } else if (newRow == "H")  {
             r2 = 7;
+        } else if (newRow == "B")  {
+            r2 = 6;
+        } else if (newRow == "C")  {
+            r2 = 5;
+        } else if (newRow == "D")  {
+            r2 = 4;
+        } else if (newRow == "E")  {
+            r2 = 3;
+        } else if (newRow == "F")  {
+            r2 = 2;
+        } else if (newRow == "G")  {
+            r2 = 1;
+        } else if (newRow == "H")  {
+            r2 = 0;
         }
-        board[r2][newColumn] = board[r][column];
-        board[r][column] = null;
+        board[newColumn][r2] = board[column][r];
+        board[column][r] = null;
     }
 
-    public boolean validMove(String row, int column, String newRow, int newColumn) {
+    public boolean validMove(String column, int row, String newColumn, int newRow) {
         String letters = "abcdefgh";
         boolean valid = false;
         for (int i=0; i < letters.length(); i++) {
-            if (row.toLowerCase() == letters.substring(i, i+1) && newRow.toLowerCase() == letters.substring(i, i+1)) {
-                valid = true;
+            if (column.toLowerCase().equals(letters.substring(i, i+1)) && newColumn.toLowerCase().equals(letters.substring(i, i+1))) {
+                if (row >= 1 || row <= 8 && newRow >= 1 || newRow <= 8) {
+                    valid = true;
+                }
             }
         }
         return valid;
